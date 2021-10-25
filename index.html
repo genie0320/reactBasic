@@ -12,10 +12,26 @@
 <body>
     <h1>Hello Genie</h1>
 
+    <div id='banner'>Banner</div>
+
     <footer>I am Footer</footer>
 
     <script type="text/babel">
+        const Banner = () => {
+            return (
+                // React 에서는 주석을 이렇게 달 수 있다.
+                <div>
+                    <p>banner</p>    
+                </div>
+            )
+        }
 
+        ReactDom.render(<BNNER />, Document.getElementById('banner'))
     </script>
 </body>
 </html>
+
+<!-- 주의할 점 
+    하나의 콤포넌트는 하나의 요소만을 반환할 수 있다. 
+    class 는 js의 예약어이므로, jsx 에서는 className을 쓴다.
+-->
