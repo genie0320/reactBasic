@@ -21,17 +21,30 @@
     <script type="text/babel">
         const Banner = () => {
             const title = " This is title! Yeh!!"
-            // 해당 콤포넌트 안에서 선언해 둔 것은, 따로 선언하지 않아도 된다.
             const address = "https://www.google.com"
+
+            const handleClick = (e) => {
+                console.log('Now I am here!')
+                console.log('here is :', title, address)
+                console.log(e)
+                {/* 이벤트가 발생하는 순간, 그 자체에 대한 접근도 가능하다. console.log에 보면 접근할 수 있는 메소드를 볼 수 있다. */}
+            }
             return (
                 <div className='banner'>
                     <h2>{title.toUpperCase()}</h2>
-                    {/* JSX에서의 주석은 이렇게 처리한다. 
-                    title.toUpperCase() 로 제자리에서 fire 되도록 처리했다. */}
                     <p>banner</p>
                     <p>Today's date is {new Date().toDateString()}</p>
                     <p>Random Number : {Math.random() * 100}</p>
                     <a href={address}>Go to google</a>
+
+                    {/* 방법 1 ::::: handleClick 은 눌렀을 때 비로서 fire되어야 하므로 뒤에 ()를 붙이지 않는다. */}
+                    <button onClick={handleClick}>Click Me</button>
+                    
+                    {/* 방법 2 ::::: 굳이 밖에다가 함수를 선언하지 않아도... 이렇게 바로 코드에 얹을 수도 있으며, 이 경우에도 똑같이 해당 이벤트의 메소드에 접근할 수 있다. */}
+                    <button onClick={ (e) => { console.log(e)} }>Click Me</button>
+                    
+                    {/* 방법 3 ::::: 한줄짜리 코드라면, 더 간단하게 이렇게도 실행할 수 있다. 꽤 자주 쓴다고 한다. 그러고보니, 예전 네이버 코드에서 많이 본거 같다. */}
+                    <button onClick={ (e) => console.log(e) }>Click Me</button>
                 </div>
             )
         }
